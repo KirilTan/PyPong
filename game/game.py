@@ -1,4 +1,14 @@
 import pygame  # Import the pygame module
+# Import the core module
+from core import colours
+from core import timer
+from core import framerate
+from core import player_y
+from core import opponent_y
+from core import ball_x
+from core import ball_y
+from core import player_direction
+from core import player_speed
 
 pygame.init()  # Initialize the pygame module
 
@@ -6,31 +16,9 @@ pygame.init()  # Initialize the pygame module
 screen = pygame.display.set_mode((600, 600))
 pygame.display.set_caption("PyPong")
 
-# Timer and fps variables
-timer = pygame.time.Clock()
-framerate = 60
-
-# Library of colours
-colours = {
-    'black': (0, 0, 0),
-    'white': (255, 255, 255),
-    'red': (255, 0, 0),
-}
-
-# Player location variables
-player_y = 150
-opponent_y = 150
-
-# Ball location variables
-ball_x = 300
-ball_y = 300
-
-# Movement variables
-player_direction = 0
-player_speed = 5
-
 # Start the game loop
 running = True
+
 while running:
 
     timer.tick(framerate)  # Set the framerate
@@ -53,24 +41,19 @@ while running:
         # Y axis movement
         if event.type == pygame.KEYDOWN:  # The player presses a key
 
-            if event.key == pygame.K_w:   # The player pressed 'W' -> Go up
+            if event.key == pygame.K_w:  # The player pressed 'W' -> Go up
                 player_direction = -5
 
-            if event.key == pygame.K_s:   # The player pressed 'S' -> Go down
+            if event.key == pygame.K_s:  # The player pressed 'S' -> Go down
                 player_direction = 5
 
-        if event.type == pygame.KEYUP:   # The player releases a key
+        if event.type == pygame.KEYUP:  # The player releases a key
 
-            if event.key == pygame.K_w or event.key == pygame.K_s:   # The player released 'W' or 'S'
+            if event.key == pygame.K_w or event.key == pygame.K_s:  # The player released 'W' or 'S'
                 player_direction = 0
 
         # Place the player on the new location
         player_y += player_speed * player_direction
-
-
-
-
-
 
     pygame.display.flip()  # Update the screen
 
