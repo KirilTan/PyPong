@@ -25,6 +25,10 @@ opponent_y = 150
 ball_x = 300
 ball_y = 300
 
+# Movement variables
+player_direction = 0
+player_speed = 5
+
 # Start the game loop
 running = True
 while running:
@@ -39,10 +43,34 @@ while running:
     # Create the ball
     ball = pygame.draw.rect(screen, colours['white'], [ball_x, ball_y, 15, 15])
 
-    # Exiting the game loop logic
+    # Game loop logic
     for event in pygame.event.get():
+
+        # Pressing the close button closes the game
         if event.type == pygame.QUIT:
             running = False
+
+        # Y axis movement
+        if event.type == pygame.KEYDOWN:  # The player presses a key
+
+            if event.key == pygame.K_w:   # The player pressed 'W' -> Go up
+                player_direction = -5
+
+            if event.key == pygame.K_s:   # The player pressed 'S' -> Go down
+                player_direction = 5
+
+        if event.type == pygame.KEYUP:   # The player releases a key
+
+            if event.key == pygame.K_w or event.key == pygame.K_s:   # The player released 'W' or 'S'
+                player_direction = 0
+
+        # Place the player on the new location
+        player_y += player_speed * player_direction
+
+
+
+
+
 
     pygame.display.flip()  # Update the screen
 

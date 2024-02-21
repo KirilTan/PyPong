@@ -1,3 +1,6 @@
 # PyPong 2024
 
-Game log 1 (21/02) - screen, players and ball created
+
+21.02 \
+Game log 1 - screen, players and ball created \
+Game log 2 - player movement added \
