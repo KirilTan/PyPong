@@ -1,19 +1,10 @@
-import pygame  # Import the pygame module
-# Import the core module
-from core import colours
-from core import timer
-from core import framerate
-from core import player_y
-from core import opponent_y
-from core import ball_x
-from core import ball_y
-from core import player_direction
-from core import player_speed
+from core import *  # Import the core module ( '*' is a bad practice but here it works )
 
-pygame.init()  # Initialize the pygame module
+if __name__ == "__main__":  # Only run the module if this is the main module
+    pygame.init()  # Initialize the pygame module
 
 # Make the screen
-screen = pygame.display.set_mode((600, 600))
+screen = pygame.display.set_mode(game_dimensions)
 pygame.display.set_caption("PyPong")
 
 # Start the game loop
@@ -25,11 +16,14 @@ while running:
     screen.fill(colours['black'])  # Fill the screen with a colour
 
     # Create the players
-    player = pygame.draw.rect(screen, colours['white'], [10, player_y, 10, 100])
-    opponent = pygame.draw.rect(screen, colours['white'], [580, opponent_y, 10, 100])
+    player = pygame.draw.rect(screen, colours['white'], [10, player_y, 10, player_size])
+    opponent = pygame.draw.rect(screen, colours['white'], [580, opponent_y, 10, opponent_size])
 
     # Create the ball
-    ball = pygame.draw.rect(screen, colours['white'], [ball_x, ball_y, 15, 15])
+    ball = pygame.draw.rect(screen, colours['white'], [ball_x, ball_y, ball_size, ball_size])
+
+    # Opponent movement
+    opponent_y = update_ai(ball_y, opponent_y)
 
     # Game loop logic
     for event in pygame.event.get():
