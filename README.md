@@ -1,6 +1,6 @@
-# PyPong 2024
+# PyPong 
 
-A simple yet engaging Pong game implemented using Pygame. Dive into the classic arcade action with PyPong 2024, where you control a paddle to play against an AI opponent. Keep the ball in play, and aim to outscore the AI!
+A simple yet engaging Pong game implemented using Pygame. Dive into the classic arcade action with PyPong, where you control a paddle to play against an AI opponent. Keep the ball in play, and aim to outscore the AI!
 
 ## Game Logs
 
