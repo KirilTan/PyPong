@@ -1,4 +1,14 @@
 import pygame  # Import the pygame module
+import sys  # Import the sys module
+
+
+def close_game():
+    """
+    This function closes the game.
+
+    """
+    pygame.quit()  #
+    sys.exit()
 
 
 def update_ai(ball_location: int, opponent_location: int) -> int:
@@ -14,16 +24,18 @@ def update_ai(ball_location: int, opponent_location: int) -> int:
 
     """
     if opponent_location + (opponent_size / 2) > ball_y + (ball_size / 2):  # Opponent is bellow the ball
-        opponent_location -= opponent_speed                                 # Opponent goes up
+        opponent_location -= opponent_speed  # Opponent goes up
 
     elif opponent_location + (opponent_size / 2) < ball_y + (ball_size / 2):  # Opponent is above the ball
-        opponent_location += opponent_speed                                   # Opponent goes down
+        opponent_location += opponent_speed  # Opponent goes down
 
     return opponent_location  # Return the updated location of the opponent
 
 
 # Game screen dimensions
-game_dimensions = (600, 600)
+screen_width = 600
+screen_height = 600
+screen_dimensions = (screen_width, screen_height)
 
 # Library of colours
 colours = {

@@ -1,18 +1,16 @@
-from core import *  # Import the core module ( '*' is a bad practice but here it works )
+from core import *  # Import the core module ('*' is a bad practice but here it works)
 
 if __name__ == "__main__":  # Only run the module if this is the main module
-    pygame.init()  # Initialize the pygame module
+    pygame.init()           # Initialize the pygame module
 
-# Make the screen
-screen = pygame.display.set_mode(game_dimensions)
+# Make the screen and caption
+screen = pygame.display.set_mode(screen_dimensions)
 pygame.display.set_caption("PyPong")
 
 # Start the game loop
-running = True
+while True:
 
-while running:
-
-    timer.tick(framerate)  # Set the framerate
+    timer.tick(framerate)          # Set the framerate
     screen.fill(colours['black'])  # Fill the screen with a colour
 
     # Create the players
@@ -30,18 +28,18 @@ while running:
 
         # Pressing the close button closes the game
         if event.type == pygame.QUIT:
-            running = False
+            close_game()  # Close the game
 
         # Y axis movement
-        if event.type == pygame.KEYDOWN:  # The player presses a key
+        elif event.type == pygame.KEYDOWN:  # The player presses a key
 
-            if event.key == pygame.K_w:  # The player pressed 'W' -> Go up
+            if event.key == pygame.K_w:     # The player pressed 'W' -> Go up
                 player_direction = -5
 
-            if event.key == pygame.K_s:  # The player pressed 'S' -> Go down
+            if event.key == pygame.K_s:     # The player pressed 'S' -> Go down
                 player_direction = 5
 
-        if event.type == pygame.KEYUP:  # The player releases a key
+        elif event.type == pygame.KEYUP:    # The player releases a key
 
             if event.key == pygame.K_w or event.key == pygame.K_s:  # The player released 'W' or 'S'
                 player_direction = 0
@@ -51,4 +49,3 @@ while running:
 
     pygame.display.flip()  # Update the screen
 
-pygame.quit()  # Close the pygame
