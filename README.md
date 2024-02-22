@@ -1,7 +1,10 @@
-# PyPong 2024
+# PyPong 
 
+A simple yet engaging Pong game implemented using Pygame. Dive into the classic arcade action with PyPong, where you control a paddle to play against an AI opponent. Keep the ball in play, and aim to outscore the AI!
 
-21.02 \
-Game log 1 - screen, players and ball created \
-Game log 2 - player movement added \
-Game log 3 - opponent movement added (tracking the ball) \
+## Game Logs
+
+### 21.02 Update
+- **Game Log 1**: Initial creation of the game screen, players, and ball.
+- **Game Log 2**: Added player movement functionality.
+- **Game Log 3**: Implemented AI opponent movement to track the ball dynamically.
